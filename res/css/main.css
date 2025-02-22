@@ -1,0 +1,37 @@
+main {
+    background-color: #fff;
+    /* Fix for some browsers displaying a small line of white under or over the transition shapes */
+    background: linear-gradient(to bottom, var(--accent-dark) 1cm, white 1cm, white calc(100% - 1cm), var(--accent-dark) calc(100% - 1cm));
+    color: #000;
+}
+
+.main-top-shape {
+    width: 100vw;
+    background-color: var(--accent-dark);
+}
+
+.main-bottom-shape {
+    width: 100vw;
+    background-color: var(--accent-dark);
+}
+
+.main-content {
+    padding: 5rem 0;
+}
+
+.main-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+.main-content h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    color: #888;
+}

@@ -1,0 +1,38 @@
+:root {
+    --accent: #6b18f0;
+    --accent-secondary: #be18f0;
+    --accent-dark: #0e0711;
+}
+
+html,
+body {
+    display: block;
+    min-height: 100%;
+    margin: 0;
+    inset: 0;
+    padding: 0;
+    background-color: var(--accent-dark);
+    color: #fff;
+    font-family: Ubuntu;
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+.center {
+    display: grid;
+    place-items: center;
+}
+
+.header-maxwidth {
+    max-width: 75rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.body-maxwidth {
+    max-width: 65rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}

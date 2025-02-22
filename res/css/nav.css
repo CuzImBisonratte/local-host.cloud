@@ -1,0 +1,28 @@
+nav {
+    height: auto;
+    font-weight: 700;
+    font-size: 2rem;
+    min-height: 7rem;
+    display: grid;
+    place-items: center;
+    grid-template-columns: min-content 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "nav-name . nav-buttons";
+    padding: 0 2rem;
+}
+
+.nav-name {
+    grid-area: nav-name;
+    white-space: nowrap;
+}
+
+.nav-buttons {
+    grid-area: nav-buttons;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
