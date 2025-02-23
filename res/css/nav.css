@@ -26,3 +26,17 @@ nav {
     justify-content: flex-end;
     gap: 1rem;
 }
+
+@media screen and (max-width : 950px) {
+    nav {
+        border-bottom: var(--accent) 1px solid;
+        min-height: 5rem;
+        padding: 0 1rem;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+}
+
+@media screen and (max-width : 600px) {}
