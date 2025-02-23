@@ -89,9 +89,9 @@ fi
 # Check if the local certs are within 30 days of expiration
 if [ -f /etc/lhost/expiry ]; then
     expiry=$(cat /etc/lhost/expiry)
-    if [ $(date -d "$expiry" +%s) -lt $(date -d "+30 days" +%s) ]; then
+    if [ $(date -d @$remote_expiry +%s) -lt $(date -d "+30 days" +%s) ]; then
         # Check if new certificates are available (different expiry date)
-        if [ $(date -d "$remote_expiry" +%s) -ne $(date -d "$expiry" +%s) ]; then
+        if [ $(date -d @$remote_expiry +%s) -ne $(date -d @$expiry +%s) ]; then
         echo -e "Your certificates are about to expire.\nRun 'lhost certs' to update them.\n"
         else 
             echo -e "Your certificates are about to expire.\nThere are no new certificates available.\nPlease check the homepage: https://local-host.cloud\n"
