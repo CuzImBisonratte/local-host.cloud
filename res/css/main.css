@@ -1,16 +1,22 @@
 main {
-    background-color: #fff;
-    /* Fix for some browsers displaying a small line of white under or over the transition shapes */
-    background: linear-gradient(to bottom, var(--accent-dark) 1cm, white 1cm, white calc(100% - 1cm), var(--accent-dark) calc(100% - 1cm));
-    color: #000;
+    background-color: var(--accent-dark);
 }
 
-.main-top-shape {
+.main-standout {
+    background-color: #fff;
+    /* Fix for some browsers displaying a small line of white under or over the transition shapes */
+    /* 10vw is chosen, as the shapes are 1920x300 in size and so they are around 100:16, 10 vw therefore is around a third from the end of the shape */
+    background: linear-gradient(to bottom, var(--accent-dark) 10vw, white 10vw, white calc(100% - 10vw), var(--accent-dark) calc(100% - 10vw));
+    color: #000;
+    text-align: center;
+}
+
+.main-standout-top {
     width: 100vw;
     background-color: var(--accent-dark);
 }
 
-.main-bottom-shape {
+.main-standout-bottom {
     width: 100vw;
     background-color: var(--accent-dark);
 }
@@ -26,12 +32,46 @@ main {
     text-align: center;
 }
 
+#easy {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+
+}
+
 .main-content h3 {
     font-size: 1.25rem;
     font-weight: 400;
     margin: 0;
     text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 5rem;
     color: #888;
+}
+
+.main-files h2 {
+    margin-bottom: 3rem;
+}
+
+.main-files hr {
+    width: 30dvw;
+    margin: 1rem auto;
+    border: 1px solid #fff;
+}
+
+.main-filedownload {
+    display: block;
+    margin: auto;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    border: 1px solid #fff;
+    border-radius: 0.5rem;
+    width: 30dvw;
+    margin-top: 0.75rem;
+    text-align: center;
+    font-size: 1.25rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.main-filedownload:hover {
+    background-color: #fff;
+    color: #000;
 }
