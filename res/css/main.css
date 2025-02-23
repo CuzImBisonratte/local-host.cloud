@@ -50,6 +50,79 @@ main {
     color: #888;
 }
 
+/* 
+Tutorial
+*/
+
+.main-tutorial-step {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 4em 1fr;
+    grid-template-rows: 1fr min-content;
+    gap: 1rem;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "main-tutorial-step-number main-tutorial-step-title"
+        "main-tutorial-step-number main-tutorial-step-command";
+    text-align: left;
+}
+
+.main-tutorial-step-number {
+    grid-area: main-tutorial-step-number;
+}
+
+.main-tutorial-step-number div {
+    background-color: var(--accent-secondary);
+    aspect-ratio: 1/1;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.main-tutorial-step-title {
+    grid-area: main-tutorial-step-title;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.main-tutorial-step-command {
+    grid-area: main-tutorial-step-command;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+.main-tutorial-step-command pre::before {
+    content: "$ ";
+    color: #fff;
+}
+
+.main-tutorial-step .copy-note {
+    font-size: 0.75rem;
+    color: #fff;
+    margin-top: 0.5rem;
+    text-align: center;
+    display: none;
+}
+
+.main-tutorial-step-command:active {
+    background-color: var(--accent);
+}
+
+.main-tutorial-step-command:active>.copy-note {
+    display: block;
+}
+
+
+/* 
+File download section
+*/
+
 .main-files .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
