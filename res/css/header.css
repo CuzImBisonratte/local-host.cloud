@@ -1,6 +1,6 @@
 header {
     display: grid;
-    grid-template-columns: 35rem 1fr;
+    grid-template-columns: 35dvw 1fr;
     grid-template-rows: 1fr;
     gap: 2.5rem;
     grid-auto-flow: row;
@@ -24,7 +24,7 @@ header {
 .header-text h1 {
     margin: 0;
     width: 100%;
-    font-size: 6dvh;
+    font-size: 3.5dvw;
 }
 
 .header-minitext {
@@ -107,8 +107,13 @@ header {
         display: none;
     }
 
+    .header-text {
+        padding: 5rem 0;
+    }
+
     .header-text h1 {
         text-align: center;
+        font-size: 6dvh;
     }
 
     .header-minitext {
@@ -127,6 +132,7 @@ header {
     .header-text h1 {
         text-align: left;
         display: inline;
+        font-size: 10vmin;
     }
 
     .header-text h1.text-accent {
@@ -137,7 +143,7 @@ header {
         text-align: left;
         max-width: 25rem;
         margin-left: 0;
-        padding-top: 1.5em;
+        padding-top: 2.5rem;
     }
 
     .header-getstarted {
