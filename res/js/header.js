@@ -8,7 +8,10 @@ for (let i = 0; i < 50; i++) {
     spark_container.appendChild(spark);
 }
 
-for (spark of sparks) {
+for (let spark of sparks) {
     spark.style.rotate = Math.floor(Math.random() * 360) + 'deg';
     spark.style.animationDelay = Math.floor(Math.random() * 5000) + 'ms';
+    spark.addEventListener('animationiteration', () => {
+        spark.style.rotate = Math.floor(Math.random() * 360) + 'deg';
+    });
 }
