@@ -9,7 +9,19 @@ function update_certs() {
     curl -o /etc/lhost/expiry -sSL https://local-host.cloud/certs/expiry
 
     # Finish the installation
-    echo "local-host.cloud certificates updated successfully."
+    echo "local-host.cloud certificates updated successfully. They will expire on $(date -I -d @$(cat /etc/lhost/expiry))."
+
+    # Exit the script
+    exit 0
+}
+
+function update_client() {
+    # Download the latest version of the client
+    curl -o /bin/lhost -sSL https://local-host.cloud/client/lhost.sh && chmod +x /bin/lhost
+    curl -o /etc/lhost/version -sSL https://local-host.cloud/client/version
+
+    # Finish the installation
+    echo "local-host.cloud client updated successfully to version $(cat /etc/lhost/version)."
 
     # Exit the script
     exit 0
@@ -46,7 +58,7 @@ command=$1
 
 # Check for root privileges
 if [[ $EUID -ne 0 ]]; then
-  echo "This script must be run as root."
+  echo "The local-host.cloud client must be run with root privileges."
   exit 1
 fi
 
@@ -105,6 +117,7 @@ if [ -z "$command" ] || [ "$command" == "help" ]; then
     echo "Commands:"
         echo "  install - Certificate installation helper"
         echo "  certs - (Re-)Download the certificates"
+        echo "  update - Update the client to the latest version"
         echo "  help - Show this help message"
         echo "  version - Show the version of the client"
     exit 1
@@ -118,8 +131,12 @@ case $command in
     certs)
         update_certs
         ;;
+    update)
+        update_client
+        ;;
     version)
         echo "local-host.cloud client version: $(cat /etc/lhost/version)"
+        echo "Certificate expiry: $(date -I -d @$(cat /etc/lhost/expiry))"
         ;;
     *)
         echo "Invalid command. Run 'lhost help' for usage."
