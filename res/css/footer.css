@@ -1,0 +1,87 @@
+footer {
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.footer-container {
+    border-top: 1px solid #ffffff11;
+    height: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "footer-copyright footer-links footer-icons";
+}
+
+.footer-container>* {
+    font-size: .95rem;
+    color: #bbb;
+}
+
+.footer-copyright {
+    grid-area: footer-copyright;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.footer-links {
+    grid-area: footer-links;
+}
+
+.footer-icons {
+    grid-area: footer-icons;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    grid-auto-flow: column;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.25rem;
+    grid-auto-flow: column;
+    padding-right: 2rem;
+}
+
+.footer-icons a {
+    color: #fff;
+    text-decoration: none;
+    aspect-ratio: 1;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.footer-icons a svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: #fff;
+}
+
+.footer-icons a:hover svg {
+    fill: #888;
+}
