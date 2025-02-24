@@ -49,3 +49,10 @@ body {
         border-color: inherit;
     }
 }
+
+/* Too big screens */
+@media screen and (min-width: 1600px) {
+    .header-maxwidth {
+        max-width: 80dvw;
+    }
+}
