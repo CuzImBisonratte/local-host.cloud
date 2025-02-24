@@ -27,28 +27,37 @@ function update_client() {
     exit 0
 }
 
-function select_webserver() {
+function install_helper() {
     while true; do
         echo "Choose your web server:"
         echo "1. Nginx"
         echo "2. Apache"
-        read -p "Enter your choice (1 or 2): " choice
-
+        echo "3. Other"
+        read -p "Enter your choice (1 - 3): " choice
         case $choice in
         1)
-        WEBSERVER="nginx"
+        clear
+        echo -e "You can add the following prepared ssl configuration to your Nginx server block:\n"
+        echo -e "ssl_certificate /etc/lhost/fullchain.pem;\nssl_certificate_key /etc/lhost/privkey.pem;\nssl_protocols TLSv1.2 TLSv1.3;\n"
+        echo -e "If you don't know how, or want to see a full tutorial, visit: https://local-host.cloud/docs/nginx\n"
         break
         ;;
         2)
-        WEBSERVER="apache"
+        clear
+        echo -e "You can add the following prepared ssl configuration to your Apache server configuration:\n"
+        echo -e "<VirtualHost *:443>\n\tSSLEngine on\n\tSSLCertificateFile /etc/lhost/fullchain.pem\n\tSSLCertificateKeyFile /etc/lhost/privkey.pem\n\tSSLProtocol all -SSLv3 -TLSv1 -TLSv1.1\n</VirtualHost>\n"
+        echo -e "If you don't know how, or want to see a full tutorial, visit: https://local-host.cloud/docs/apache\n"
         break
         ;;
         *)
-        echo "Invalid choice. Please enter 1 or 2."
+        clear
+        echo -e "Easy install is not available for your web server. \n"
+        echo -e "Your certificates are available at:\n/etc/lhost/cert.pem\n/etc/lhost/chain.pem\n/etc/lhost/fullchain.pem\n/etc/lhost/privkey.pem\n"
+        echo -e "For more information please visit https://local-host.cloud/docs/manual for a manual installation guide.\n"
+        break
         ;;
         esac
     done
-    echo "You selected: $WEBSERVER"
 }
 
 # --- Main Script ---
