@@ -1,0 +1,30 @@
+# GitHub Workflow to check for changes in the lhost.sh file - if changes are detected, increment the version number by one
+
+name: Version Increment
+on:
+  push:
+    paths:
+      - './client/lhost.sh'
+  workflow_dispatch:
+  
+
+jobs:
+  version_increment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Increment version
+        run: |
+          current_version=$(cat ./client/version)
+          new_version=$((current_version + 1))
+          echo $new_version > ./client/version
+
+      - name: Commit version increment
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add ./client/version
+          git commit -m "Increment version to $new_version"
+          git push
