@@ -71,7 +71,6 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-
 # Download the expiry and version from the homepage 
 mkdir -p /tmp/local-host.cloud
 # Download the files
