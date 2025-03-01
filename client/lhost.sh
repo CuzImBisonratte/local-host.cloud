@@ -100,8 +100,6 @@ if [ -f /etc/lhost/version ]; then
     local_version=$(cat /etc/lhost/version)
     if [ "$local_version" != "$remote_version" ]; then
         echo -e "An update is available.\nRun 'lhost update' to install the latest version.\n"
-        echo $local_version
-        echo $remote_version
     fi
 else
     echo -e "An update is available.\nRun 'lhost update' to install the latest version.\n"
